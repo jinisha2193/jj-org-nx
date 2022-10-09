@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@jj-org/data": ["libs/data/src/index.ts"]
+      "@jj-org/data": ["libs/data/src/index.ts"],
+      "@jj-org/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
