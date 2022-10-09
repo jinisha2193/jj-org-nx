@@ -1,11 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Todo } from '@jj-org/data';
 import { useEffect, useState } from 'react';
 import styles from './app.module.css';
-
-interface Todo {
-  title: string;
-  status: boolean;
-}
 
 const defaultTodo: Todo = {
   title: 'new Todo',

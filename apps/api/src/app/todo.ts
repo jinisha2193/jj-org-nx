@@ -1,9 +1,5 @@
+import { Todo } from '@jj-org/data';
 import { Express } from 'express';
-
-interface Todo {
-  title: string;
-  status: boolean;
-}
 
 const todos: Todo[] = [
   { title: 'Todo 1', status: false },
