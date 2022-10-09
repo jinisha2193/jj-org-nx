@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './app.module.css';
 
 interface Todo {
@@ -13,10 +13,13 @@ const defaultTodo: Todo = {
 };
 
 export const App = () => {
-  const [todos, setTodos] = useState<Todo[]>([
-    { title: 'Todo List item 1', status: true },
-    { title: 'Todo List item 2', status: false },
-  ]);
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  useEffect(() => {
+    fetch('/api/todos')
+      .then((_) => _.json())
+      .then(setTodos);
+  }, []);
 
   const updateTodoStatus = (todo: Todo): void => {
     const indexOfTodoToBeUpdated = todos.findIndex((eachTodo) => {
