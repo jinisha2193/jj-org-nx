@@ -8,7 +8,7 @@ export interface TodosProps {
   addToDO(): void;
 }
 
-export function Todos({ todos, updateTodoStatus, addToDO }: TodosProps) {
+export function Todos({ todos = [], updateTodoStatus, addToDO }: TodosProps) {
   return (
     <div className={styles['container']}>
       <h1>Welcome to Todos!</h1>

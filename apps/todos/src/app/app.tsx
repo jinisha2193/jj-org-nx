@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Todo } from '@jj-org/data';
+import { Todos } from '@jj-org/ui';
 import { useEffect, useState } from 'react';
 import styles from './app.module.css';
 
@@ -25,34 +26,15 @@ export const App = () => {
     newArray[indexOfTodoToBeUpdated].status = !todo.status;
     setTodos(newArray);
   };
-  const addToDO = (todo: Todo): void => {
-    setTodos((existingToDo) => [...existingToDo, todo]);
+  const addToDO = (): void => {
+    setTodos((existingToDo) => [...existingToDo, defaultTodo]);
   };
   return (
-    <>
-      <h1>Todos</h1>
-      <ul>
-        {todos.map((t) => (
-          <li className={'todo'} key={t.title}>
-            <input
-              type="checkbox"
-              id={t.title}
-              checked={t.status}
-              onChange={() => updateTodoStatus(t)}
-            />
-            {t.title}
-          </li>
-        ))}
-      </ul>
-      <button
-        id={'add-todo'}
-        onClick={() => {
-          addToDO(defaultTodo);
-        }}
-      >
-        Add Todo
-      </button>
-    </>
+    <Todos
+      todos={todos}
+      updateTodoStatus={updateTodoStatus}
+      addToDO={addToDO}
+    />
   );
 };
 export default App;
